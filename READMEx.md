@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # eyowo-opencart
 
 ## Description
@@ -33,3 +34,7 @@ having any issues using this plugin, please contact the author
 ## Authors
 
 Dami Akinsiku <dami.akinsiku@eyowo.com>
+=======
+# paystack-opencart
+An opencart extension for paystack
+>>>>>>> origin/master
