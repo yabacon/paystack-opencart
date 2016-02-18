@@ -9,11 +9,11 @@ Install to receive payments for your goods in naira from any Mastercard, Visa or
 - You need to have created an account on [paystack.com](https://dashboard.paystack.co/#/signup).
 
 ## Features:
-• Paystack payment gateway integration
-• Activates payment module only when cart currency is `NGN`
-• Activate payment module only when order total reaches the amount you specified
-• Captures call back notification to automatically update order status
-• Simply turn on Live Mode to accept live payments.
+- Paystack payment gateway integration
+- Activates payment module only when cart currency is `NGN`
+- Activate payment module only when order total reaches the amount you specified
+- Captures call back notification to automatically update order status
+- Simply turn on Live Mode to accept live payments.
 
 ## Installation
 0. Visit [Paystack OpenCart Extension](http://www.opencart.com/index.php?route=extension/extension/info&extension_id=25767&filter_search=paystack) to download the latest release.
