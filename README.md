@@ -24,7 +24,6 @@ Install to receive payments for your goods in naira from any Mastercard, Visa or
 4. In admin panel, proceed to ‘Extensions > Payment’ and install ‘Paystack’.
 5. Configure the module accordingly. 
  - To get your live and test secret keys, visit [the Paystack Dashboard](https://dashboard.paystack.co/#/settings/developer).
- - Set the callback url thus: http://<domain root>/index.php?route=payment/paystack/callback e.g http://mycart.com/index.php?route=payment/paystack/callback
 6. Enable Paystack payment gateway on your OpenCart admin.
 7. Add and set NGN as your default store currency.
 8. Proceed to [Paystack OpenCart Extension](http://www.opencart.com/index.php?route=extension/extension/info&extension_id=25767&filter_search=paystack) to rate our work.
