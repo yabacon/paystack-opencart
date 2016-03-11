@@ -4,6 +4,11 @@
 OpenCart Paystack payment gateway integration. Visit the [Paystack Website](http://paystack.com) to know how paystack works.
 Install to receive payments for your goods in naira from any Mastercard, Visa or Verve card in the world.
 
+## Requirements
+- Curl 7.34.0 or more recent
+- PHP 5.5.19 or more recent
+- OpenSSL v1.0.1 or more recent
+
 ## Notes
 - Paystack currently only accepts the following currencies: `NGN`.
 - You need to have created an account on [paystack.com](https://dashboard.paystack.co/#/signup).

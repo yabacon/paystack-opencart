@@ -6,6 +6,9 @@
 
 # Ignore bundler config
 /.bundle
+# no zipped folders in root should be included in repo
+/*.zip
+/*.tgz
 
 # Ignore the default SQLite database.
 /db/*.sqlite3

@@ -54,6 +54,14 @@ class ControllerPaymentPaystack extends Controller
         //set the url, and the header
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        // Paystack's servers require TLSv1.2
+        // Force CURL to use this
+        if (!defined('CURL_SSLVERSION_TLSV1_2')) {
+            define('CURL_SSLVERSION_TLSV1_2', 6);
+        }
+        curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSV1_2);
+
         curl_setopt(
             $ch, CURLOPT_HTTPHEADER, [
             "Authorization: Bearer " . $skey]
