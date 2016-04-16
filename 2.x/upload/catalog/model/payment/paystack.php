@@ -25,8 +25,8 @@ class ModelPaymentPaystack extends Model
         } 
 
         // Paystack Only switches NGN for now
-        if (strtoupper($this->currency->getCode())==='NGN') {
-            $status = true;
+        if ($status && (strtoupper($this->currency->getCode())!=='NGN')) {
+            $status = false;
         }
         
         $method_data = array();
