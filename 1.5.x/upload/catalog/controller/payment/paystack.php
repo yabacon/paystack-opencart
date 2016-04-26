@@ -64,7 +64,7 @@ class ControllerPaymentPaystack extends Controller
 
         curl_setopt(
             $ch, CURLOPT_HTTPHEADER, [
-            "Authorization: Bearer " . $skey]
+            'Authorization: Bearer ' . $skey]
         );
 
         //execute post
