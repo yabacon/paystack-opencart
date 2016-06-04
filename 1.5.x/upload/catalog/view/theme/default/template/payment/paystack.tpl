@@ -6,7 +6,7 @@
   <script src="https://js.paystack.co/v1/inline.js"></script>
   <div class="buttons">
     <div class="right">
-      <input type="submit"  onclick="payWithPaystack()" value="<?php echo $button_confirm; ?>" class="button" />
+      <input type="button"  onclick="payWithPaystack()" value="<?php echo $button_confirm; ?>" class="button" />
     </div>
   </div>
 </form>
