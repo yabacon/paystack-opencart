@@ -49,7 +49,7 @@ class ControllerPaymentPaystack extends Controller
             'header'=>"Authorization: Bearer " .  $skey,
           )
         );
-​
+
         $context = stream_context_create($opts);
         $url = 'https://api.paystack.co/transaction/verify/'. rawurlencode($reference);
         $request = file_get_contents($url, false, $context);
