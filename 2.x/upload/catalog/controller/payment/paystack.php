@@ -43,14 +43,13 @@ class ControllerPaymentPaystack extends Controller
             $skey = $this->config->get('paystack_test_secret');
         }
 
-        $opts = array(
-          'http'=>array(
-            'method'=>"GET",
-            'header'=>"Authorization: Bearer " .  $skey,
+        $context = stream_context_create(array(
+            'http'=>array(
+              'method'=>"GET",
+              'header'=>"Authorization: Bearer " .  $skey,
+            )
           )
         );
-
-        $context = stream_context_create($opts);
         $url = 'https://api.paystack.co/transaction/verify/'. rawurlencode($reference);
         $request = file_get_contents($url, false, $context);
         return json_decode($request, true);
