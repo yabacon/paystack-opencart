@@ -30,7 +30,8 @@ class ControllerPaymentPaystack extends Controller
             if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/paystack.tpl')) {
                 return $this->load->view($this->config->get('config_template') . '/template/payment/paystack.tpl', $data);
             } else {
-                return $this->load->view('default/template/payment/paystack.tpl', $data);
+                return $this->load->view('payment/paystack.tpl', $data);
+
             }
         }
     }
