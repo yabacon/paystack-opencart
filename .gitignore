@@ -7,7 +7,7 @@
 # Ignore bundler config
 /.bundle
 # no zipped folders in root should be included in repo
-*.zip
+#*.zip
 /*.tgz
 
 # Ignore the default SQLite database.
