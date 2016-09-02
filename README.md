@@ -37,6 +37,6 @@ Install to receive payments for your goods in naira from any Mastercard, Visa or
 To add currencies, you can do so at System > Localisation > Currencies. 
 
 
-## Authors
-Ibrahim Lawal
-
+## Contributors
+- Ibrahim Lawal
+- Kendyson Douglas
