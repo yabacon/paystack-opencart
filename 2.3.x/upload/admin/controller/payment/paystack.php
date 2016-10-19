@@ -5,18 +5,20 @@ class ControllerPaymentPaystack extends Controller
 
     public function index() 
     {
-        $this->load->language('payment/paystack');
+        $this->load->language('extension/payment/paystack');
 
         $this->document->setTitle($this->language->get('heading_title'));
 
         $this->load->model('setting/setting');
 
         if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+            // echo "Didn't get here";
+            // die();
             $this->model_setting_setting->editSetting('paystack', $this->request->post);
 
             $this->session->data['success'] = $this->language->get('text_success');
 
-            $this->response->redirect($this->url->link('extension/payment/paystack', 'token=' . $this->session->data['token'], 'SSL'));
+            $this->response->redirect($this->url->link('extension/extension', 'token=' . $this->session->data['token']. '&type=payment', 'SSL'));
         }
 
         $data['heading_title'] = $this->language->get('heading_title');
@@ -76,17 +78,17 @@ class ControllerPaymentPaystack extends Controller
 
         $data['breadcrumbs'][] = array(
         'text' => $this->language->get('text_payment'),
-        'href' => $this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL')
+        'href' => $this->url->link('extension/extension', 'token=' . $this->session->data['token'].'&type=payment', 'SSL')
         );
 
         $data['breadcrumbs'][] = array(
         'text' => $this->language->get('heading_title'),
-        'href' => $this->url->link('payment/paystack', 'token=' . $this->session->data['token'], 'SSL')
+        'href' => $this->url->link('extension/payment/paystack', 'token=' . $this->session->data['token'], 'SSL')
         );
 
-        $data['action'] = $this->url->link('payment/paystack', 'token=' . $this->session->data['token'], 'SSL');
+        $data['action'] = $this->url->link('extension/payment/paystack', 'token=' . $this->session->data['token'], 'SSL');
 
-        $data['cancel'] = $this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL');
+        $data['cancel'] = $this->url->link('extension/payment', 'token=' . $this->session->data['token'] . '&type=payment', 'SSL');
 
         if (isset($this->request->post['paystack_live_secret'])) {
             $data['paystack_live_secret'] = $this->request->post['paystack_live_secret'];
@@ -188,7 +190,7 @@ class ControllerPaymentPaystack extends Controller
 
     private function validate() 
     {
-        if (!$this->user->hasPermission('modify', 'payment/paystack')) {
+        if (!$this->user->hasPermission('modify', 'extension/payment/paystack')) {
             $this->error['warning'] = $this->language->get('error_permission');
         }
         
