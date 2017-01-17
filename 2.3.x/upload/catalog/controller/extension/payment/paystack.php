@@ -24,7 +24,7 @@ class ControllerExtensionPaymentPaystack extends Controller {
             $data['ref'] = uniqid('' . $this->session->data['order_id'] . '-');
             $data['amount'] = intval($order_info['total'] * 100);
             $data['email'] = $order_info['email'];
-            $data['callback'] = $this->url->link('payment/paystack/callback', 'trxref=' . rawurlencode($data['ref']), 'SSL');
+            $data['callback'] = $this->url->link('extension/payment/paystack/callback', 'trxref=' . rawurlencode($data['ref']), 'SSL');
 
             if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/paystack.tpl')) {
                 return $this->load->view($this->config->get('config_template') . '/template/payment/paystack.tpl', $data);
