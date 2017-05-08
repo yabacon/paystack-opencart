@@ -31,6 +31,8 @@ class ControllerPaymentPaystack extends Controller
 
         $this->data['entry_test_secret'] = $this->language->get('entry_test_secret');
         $this->data['entry_live_secret'] = $this->language->get('entry_live_secret');
+        $this->data['entry_test_public'] = $this->language->get('entry_test_public');
+        $this->data['entry_live_public'] = $this->language->get('entry_live_public');
         
         $this->data['entry_live'] = $this->language->get('entry_live');
         $this->data['entry_debug'] = $this->language->get('entry_debug');
