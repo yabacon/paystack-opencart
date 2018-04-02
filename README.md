@@ -10,12 +10,12 @@ Install to receive payments for your goods in naira from any Mastercard, Visa or
 - OpenSSL v1.0.1 or more recent
 
 ## Notes
-- Paystack currently only accepts the following currencies: `NGN`.
+- Paystack currently only accepts the following currencies: `NGN`, `GHS` and `USD`.
 - You need to have created an account on [paystack.com](https://dashboard.paystack.co/#/signup).
 
 ## Features:
 - Paystack payment gateway integration
-- Activates payment module only when cart currency is `NGN`
+- Activates payment module only when cart currency is `NGN`, `GHS` or `USD`.
 - Activate payment module only when order total reaches the amount you specified
 - Captures call back notification to automatically update order status
 - Simply turn on Live Mode to accept live payments.
@@ -30,7 +30,7 @@ Install to receive payments for your goods in naira from any Mastercard, Visa or
 5. Configure the module accordingly. 
  - To get your live and test secret keys, visit [the Paystack Dashboard](https://dashboard.paystack.co/#/settings/developer).
 6. Enable Paystack payment gateway on your OpenCart admin.
-7. Add and set NGN as your default store currency.
+7. Add and set NGN, GHS or USD. as your default store currency.
 8. Proceed to [Paystack OpenCart Extension](http://www.opencart.com/index.php?route=extension/extension/info&extension_id=25767&filter_search=paystack) to rate our work.
 
 ## Other Configuration

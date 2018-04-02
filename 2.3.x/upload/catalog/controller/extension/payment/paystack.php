@@ -1,6 +1,7 @@
 <?php
-class ControllerExtensionPaymentPaystack extends Controller {
-	public function index()
+class ControllerExtensionPaymentPaystack extends Controller
+{
+    public function index()
     {
         $this->language->load('extension/payment/paystack');
 
@@ -24,6 +25,7 @@ class ControllerExtensionPaymentPaystack extends Controller {
             $data['ref'] = uniqid('' . $this->session->data['order_id'] . '-');
             $data['amount'] = intval($order_info['total'] * 100);
             $data['email'] = $order_info['email'];
+            $data['currency'] = $order_info['currency_code'];
             $data['callback'] = $this->url->link('extension/payment/paystack/callback', 'trxref=' . rawurlencode($data['ref']), 'SSL');
 
             if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/paystack.tpl')) {
@@ -43,59 +45,18 @@ class ControllerExtensionPaymentPaystack extends Controller {
             $skey = $this->config->get('paystack_test_secret');
         }
 
-        $context = stream_context_create(array(
-            'http'=>array(
-              'method'=>"GET",
-              'header'=>"Authorization: Bearer " .  $skey,
+        $context = stream_context_create(
+            array(
+                'http'=>array(
+                    'method'=>"GET",
+                    'header'=>"Authorization: Bearer " .  $skey,
+                )
             )
-          )
         );
         $url = 'https://api.paystack.co/transaction/verify/'. rawurlencode($reference);
         $request = file_get_contents($url, false, $context);
         return json_decode($request, true);
     }
-    // protected function query_api_transaction_verify($reference)
-    // {
-    //     $url = 'https://api.paystack.co/transaction/verify/' . urlencode($reference);
-    //     $data = array();
-        
-    //     if ($this->config->get('paystack_live')) {
-    //         $skey = $this->config->get('paystack_live_secret');
-    //     } else {
-    //         $skey = $this->config->get('paystack_test_secret');
-    //     }
-
-    //     //open connection
-    //     $ch = curl_init();
-
-    //     //set the url, and the header
-    //     curl_setopt($ch, CURLOPT_URL, $url);
-    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-    //     // Paystack's servers require TLSv1.2
-    //     // Force CURL to use this
-    //     if (!defined('CURL_SSLVERSION_TLSV1_2')) {
-    //         define('CURL_SSLVERSION_TLSV1_2', 6);
-    //     }
-    //     curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSV1_2);
-
-    //     curl_setopt(
-    //         $ch, CURLOPT_HTTPHEADER, [
-    //         'Authorization: Bearer ' . $skey]
-    //     );
-
-    //     //execute post
-    //     $result = curl_exec($ch);
-
-    //     //close connection
-    //     curl_close($ch);
-
-    //     if ($result) {
-    //         $data = json_decode($result, true);
-    //     }
-        
-    //     return $data;
-    // }
 
     private function redir_and_die($url, $onlymeta = false)
     {
@@ -114,7 +75,7 @@ class ControllerExtensionPaymentPaystack extends Controller {
             // order id is what comes before the first dash in trxref
             $order_id = substr($trxref, 0, strpos($trxref, '-'));
             // if no dash were in transation reference, we will have an empty order_id
-            if(!$order_id) {
+            if (!$order_id) {
                 $order_id = 0;
             }
 
