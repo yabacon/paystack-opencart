@@ -17,6 +17,7 @@
       key: '<?php echo $key; ?>',
       email: '<?php echo $email; ?>',
       amount: <?php echo $amount; ?>,
+      currency: '<?php echo $currency; ?>',
       ref: '<?php echo $ref; ?>',
       callback: function(response){
           window.location.href='<?php echo html_entity_decode($callback); ?>';
