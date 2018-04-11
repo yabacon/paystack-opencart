@@ -26,11 +26,11 @@ class ModelPaymentPaystack extends Model
 
         // Paystack only switches NGN, GHS and USD for now
         if ($status 
-            && ((strtoupper($this->config->get('config_currency'))!=='NGN')
-            || (strtoupper($this->config->get('config_currency'))!=='GHS')
-            || (strtoupper($this->config->get('config_currency'))!=='USD'))
-            ) {
-            $status = false;
+            && ((strtoupper($this->config->get('config_currency')) =='NGN')
+            || (strtoupper($this->config->get('config_currency')) =='GHS')
+            || (strtoupper($this->config->get('config_currency')) =='USD'))
+        ) {
+            $status = true;
         }
 
         $method_data = array();
