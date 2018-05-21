@@ -25,6 +25,7 @@ class ControllerPaymentPaystack extends Controller
             $data['ref'] = uniqid('' . $this->session->data['order_id'] . '-');
             $data['amount'] = intval($order_info['total'] * 100);
             $data['email'] = $order_info['email'];
+            $data['currency'] = $order_info['currency_code'];
             $data['callback'] = $this->url->link('payment/paystack/callback', 'trxref=' . rawurlencode($data['ref']), 'SSL');
 
             if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/paystack.tpl')) {
@@ -44,12 +45,13 @@ class ControllerPaymentPaystack extends Controller
             $skey = $this->config->get('paystack_test_secret');
         }
 
-        $context = stream_context_create(array(
-            'http'=>array(
-              'method'=>"GET",
-              'header'=>"Authorization: Bearer " .  $skey,
+        $context = stream_context_create(
+            array(
+                'http'=>array(
+                'method'=>"GET",
+                'header'=>"Authorization: Bearer " .  $skey,
+                )
             )
-          )
         );
         $url = 'https://api.paystack.co/transaction/verify/'. rawurlencode($reference);
         $request = file_get_contents($url, false, $context);
