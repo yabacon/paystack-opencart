@@ -36,7 +36,21 @@ Install to receive payments for your goods in naira from any Mastercard, Visa or
 ## Other Configuration
 To add currencies, you can do so at System > Localisation > Currencies. 
 
+## Documentation
+* [Paystack Documentation](https://developers.paystack.co/v2.0/docs/)
+* [Paystack Helpdesk](https://paystack.com/help)
 
-## Contributors
-- Ibrahim Lawal
-- Kendyson Douglas
+## Support
+For bug reports and feature requests directly related to this plugin, please use the [issue tracker](https://github.com/PaystackHQ/paystack-payment-forms-for-wordpress/issues). 
+
+For questions related to using the plugin, please post an inquiry to the plugin [support forum](https://wordpress.org/support/plugin/payment-forms-for-paystack).
+
+For general support or questions about your Paystack account, you can reach out by sending a message from [our website](https://paystack.com/contact).
+
+## Community
+If you are a developer, please join our Developer Community on [Slack](https://slack.paystack.com).
+
+## Contributing to Payment Forms for Paystack
+
+If you have a patch or have stumbled upon an issue with the Paystack Gateway for Paid Membership Pro plugin, you can contribute this back to the code. Please read our [contributor guidelines](https://github.com/PaystackHQ/plugin-opencart/blob/master/CONTRIBUTING.md) for more information how you can do this.
+
